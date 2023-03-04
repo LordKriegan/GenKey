@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+import clipboard from 'clipboardy';
 
 //function copied from https://codepen.io/corenominal/pen/rxOmMJ original author is Philip Newborough
-function generateUUID() {
+const generateUUID = () => {
 	var d = new Date().getTime();
 	
 	var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) 	{
@@ -13,6 +14,35 @@ function generateUUID() {
     return uuid;
 }
 
+const copyToClipboard = (apiKey) => {
+    clipboard.writeSync(apiKey)
+}
+
+const showVersion = () => {
+    console.log("GenKey v1.0.1");
+    console.log("Author: Qamar Abbas Stationwala");
+}
+
+const args = process.argv.slice(2)
+const newApiKey = generateUUID()
+
+args.forEach(arg => {
+    switch (arg) {
+        case "-c":
+        case "--copy":
+            copyToClipboard(newApiKey)
+            break;
+        case "-v":
+        case "--version":
+            showVersion();
+            break;
+        default:
+            console.log(arg + ' is not a recognized command; skipping.')
+    }
+})
+
+
+
 console.log("------------------------------------------")
-console.log("|  " + generateUUID() + "  |")
+console.log("|  " + newApiKey + "  |")
 console.log("------------------------------------------")

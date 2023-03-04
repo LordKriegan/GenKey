@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository":"lordkriegan/genkey",
+  "repository": "lordkriegan/genkey",
   "keywords": [
     "generate",
     "api",
@@ -23,5 +23,8 @@
   "homepage": "https://github.com/LordKriegan/GenKey#readme",
   "bin": {
     "genkey": "./index.js"
+  },
+  "dependencies": {
+    "clipboardy": "^3.0.0"
   }
 }
