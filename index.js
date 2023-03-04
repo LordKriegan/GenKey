@@ -19,7 +19,7 @@ const copyToClipboard = (apiKey) => {
 }
 
 const showVersion = () => {
-    console.log("GenKey v1.0.1");
+    console.log("GenKey v1.1.0");
     console.log("Author: Qamar Abbas Stationwala");
 }
 
