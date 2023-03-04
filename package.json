@@ -1,15 +1,12 @@
 {
-  "name": "genkey",
-  "version": "1.0.0",
+  "name": "@lordkriegan/genkey",
+  "version": "1.0.1",
   "description": "generate api keys inside terminal",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LordKriegan/GenKey.git"
-  },
+  "repository":"lordkriegan/genkey",
   "keywords": [
     "generate",
     "api",

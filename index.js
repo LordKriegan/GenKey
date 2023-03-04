@@ -13,4 +13,6 @@ function generateUUID() {
     return uuid;
 }
 
-console.log(generateUUID())
+console.log("------------------------------------------")
+console.log("|  " + generateUUID() + "  |")
+console.log("------------------------------------------")
