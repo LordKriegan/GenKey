@@ -19,8 +19,9 @@ const copyToClipboard = (apiKey) => {
 }
 
 const showVersion = () => {
-    console.log("GenKey v1.1.1");
+    console.log("GenKey v1.1.2");
     console.log("Author: Qamar Abbas Stationwala");
+    process.exit(0) //only want to show version information, so exiting program early
 }
 
 const args = process.argv.slice(2)
