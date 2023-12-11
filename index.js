@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import clipboard from 'clipboardy';
+import { spawn } from 'child_process';
+import pkg from './package.json' assert { "type": "json" }
 
 //function copied from https://codepen.io/corenominal/pen/rxOmMJ original author is Philip Newborough
 const generateUUID = () => {
@@ -14,18 +15,37 @@ const generateUUID = () => {
     return uuid;
 }
 
+let copyClipBoardCalled = false;
 const copyToClipboard = (apiKey) => {
-    clipboard.writeSync(apiKey)
+    if (copyClipBoardCalled) return;
+    spawn('clip').stdin.end(apiKey)
+    copyClipBoardCalled = true
 }
 
+let showVersionCalled = false;
 const showVersion = () => {
-    console.log("GenKey v1.1.2");
+    if (showVersionCalled) return;
+    console.log(`GenKey v${pkg.version}`);
     console.log("Author: Qamar Abbas Stationwala");
-    process.exit(0) //only want to show version information, so exiting program early
+    exitEarly = true;
+    showVersionCalled = true;
+}
+
+let showHelpCalled = false;
+const showHelp = () => {
+    if (showHelpCalled) return;
+    console.log("     Usage: genkey [flags]\n")
+    console.log("     Options:")
+    console.log("          -c, --copy".padEnd(30) + "copy key to clipboard")
+    console.log("          -v, --version".padEnd(30) + "shows version information")
+    console.log("          -h, --help".padEnd(30) + "show all available options\n\n")
+    exitEarly = true;
+    showHelpCalled = true;
 }
 
 const args = process.argv.slice(2)
 const newApiKey = generateUUID()
+let exitEarly = false;
 
 args.forEach(arg => {
     switch (arg) {
@@ -37,12 +57,18 @@ args.forEach(arg => {
         case "--version":
             showVersion();
             break;
+        case "-h":
+        case "--help":
+            showHelp();
+            break;
         default:
             console.log(arg + ' is not a recognized command; skipping.')
     }
 })
 
-
+if (exitEarly) {
+    process.exit(0) //only want to show version information, so exiting program early
+}
 
 console.log("------------------------------------------")
 console.log("|  " + newApiKey + "  |")
