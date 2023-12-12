@@ -2,6 +2,7 @@
 import { spawn } from 'child_process';
 import pkg from './package.json' assert { "type": "json" }
 
+//https://stackoverflow.com/questions/55778283/how-to-disable-warnings-when-node-is-launched-via-a-global-shell-script
 const originalEmit = process.emit;
 process.emit = function (name, data, ...args) {
   if (
