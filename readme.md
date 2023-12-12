@@ -12,3 +12,13 @@ You can automatically copy the key to your clipboard with this command instead:
     genkey -c
 Or
     genkey --copy
+
+Note that, if you so wish, you may also use keygen as a command as well!
+
+All available commands: 
+     Usage: `<genkey OR keygen> [flags]`
+
+     Options:
+          -c, --copy          copy key to clipboard
+          -v, --version       shows version information
+          -h, --help          show all available options
