@@ -1,6 +1,6 @@
 {
   "name": "@lordkriegan/genkey",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "generate api keys within terminal",
   "main": "index.js",
   "type": "module",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/LordKriegan/GenKey#readme",
   "bin": {
-    "genkey": "./index.js"
+    "genkey": "./index.js",
+    "keygen": "./index.js"
   }
 }

@@ -34,7 +34,7 @@ const showVersion = () => {
 let showHelpCalled = false;
 const showHelp = () => {
     if (showHelpCalled) return;
-    console.log("     Usage: genkey [flags]\n")
+    console.log("     Usage: <genkey OR keygen> [flags]\n")
     console.log("     Options:")
     console.log("          -c, --copy".padEnd(30) + "copy key to clipboard")
     console.log("          -v, --version".padEnd(30) + "shows version information")
