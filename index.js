@@ -1,21 +1,6 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --no-warnings
 import { spawn } from 'child_process';
 import pkg from './package.json' assert { "type": "json" }
-
-//https://stackoverflow.com/questions/55778283/how-to-disable-warnings-when-node-is-launched-via-a-global-shell-script
-const originalEmit = process.emit;
-process.emit = function (name, data, ...args) {
-  if (
-    name === `warning` &&
-    typeof data === `object` &&
-    data.name === `ExperimentalWarning` 
-    //if you want to only stop certain messages, test for the message here:
-    && data.message.includes(`Importing JSON modules is an experimental feature`)
-  ) {
-    return false;
-  }
-  return originalEmit.apply(process, arguments);
-};
 
 //function copied from https://codepen.io/corenominal/pen/rxOmMJ original author is Philip Newborough
 const generateUUID = () => {

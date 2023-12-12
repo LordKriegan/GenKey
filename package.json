@@ -1,6 +1,6 @@
 {
   "name": "@lordkriegan/genkey",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "generate api keys within terminal",
   "main": "index.js",
   "type": "module",
